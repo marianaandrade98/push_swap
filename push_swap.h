@@ -16,5 +16,11 @@ void	sb(t_list *list_a, t_list *list_b, int p);
 void	ss(t_list *list_a, t_list *list_b, int p);
 void	pa(t_list **list_a, t_list **list_b, int p);
 void	pb(t_list **list_a, t_list **list_b, int p);
+void	ra(t_list **list_a, t_list **list_b, int p);
+void	rb(t_list **list_a, t_list **list_b, int p);
+void	rr(t_list **list_a, t_list **list_b, int p);
+void	rra(t_list **list_a, t_list **list_b, int p);
+void	rrb(t_list **list_a, t_list **list_b, int p);
+void	rrr(t_list **list_a, t_list **list_b, int p);
 
 # endif
