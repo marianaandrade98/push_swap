@@ -4,7 +4,7 @@ RM		= rm -f
 CFLAGS	= -Wall -Werror -Wextra
 INCLUDE	= push_swap.h
 
-SRCS	=
+SRCS	= main.c swap.c
 
 OBJS	= $(SRCS:.c=.o)
 

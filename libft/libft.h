@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 20:09:31 by mandrade          #+#    #+#             */
-/*   Updated: 2021/02/24 20:10:08 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/06/30 14:50:17 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 void    			ft_swap(int *a, int *b);
+void				ft_putstr(char const *s);
 
 #endif
