@@ -14,5 +14,7 @@ typedef struct s_list
 void	sa(t_list *list_a, t_list *list_b, int p);
 void	sb(t_list *list_a, t_list *list_b, int p);
 void	ss(t_list *list_a, t_list *list_b, int p);
+void	pa(t_list **list_a, t_list **list_b, int p);
+void	pb(t_list **list_a, t_list **list_b, int p);
 
 # endif

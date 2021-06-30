@@ -4,7 +4,7 @@ RM		= rm -f
 CFLAGS	= -Wall -Werror -Wextra
 INCLUDE	= push_swap.h
 
-SRCS	= main.c swap.c
+SRCS	= main.c swap.c push.c rotate.c
 
 OBJS	= $(SRCS:.c=.o)
 
@@ -23,3 +23,5 @@ clean:
 fclean:		clean
 			$(RM) $(NAME)
 re:			fclean all
+
+.PHONY: all, clean, fclean, re
