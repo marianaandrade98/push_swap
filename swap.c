@@ -1,48 +1,33 @@
 #include "push_swap.h"
 
-void	sa(t_list *list_a, t_list *list_b, int p)
+void	sa(t_list *stack_a, t_list *stack_b, int p)
 {
-	if (!list_a)
+	if (!stack_a)
 		return ;
-	if (list_a->next)
+	if (stack_a->next)
 	{
-		ft_swap(&list_a->content, &list_a->next->content);
+		ft_swap(&stack_a->content, &stack_a->next->content);
 		if (p == 1)
 			ft_putstr("sa\n");
-		if (p == 2)
-		{
-			ft_putstr("\x1b[36mExecute sa:\n\n");
-
-		}
 	}
 }
 
-void	sb(t_list *list_a, t_list *list_b, int p)
+void	sb(t_list *stack_a, t_list *stack_b, int p)
 {
-	if (!list_b)
+	if (!stack_b)
 		return ;
-	if (list_b->next)
+	if (stack_b->next)
 	{
-		ft_swap(&list_b->content, &list_b->next->content);
+		ft_swap(&stack_b->content, &stack_b->next->content);
 		if (p == 1)
 			ft_putstr("sb\n");
-		if (p == 2)
-		{
-			ft_putstr("Execute sb:\n\n");
-
-		}
 	}
 }
 
-void	ss(t_list *list_a, t_list *list_b, int p)
+void	ss(t_list *stack_a, t_list *stack_b, int p)
 {
-	sa(list_a, list_b, 0);
-	sb(list_a, list_b, 0);
+	sa(stack_a, stack_b, 0);
+	sb(stack_a, stack_b, 0);
 	if (p == 1)
 			ft_putstr("ss\n");
-		if (p == 2)
-		{
-			ft_putstr("Execute ss:\n\n");
-
-		}
 }

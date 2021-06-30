@@ -2,6 +2,6 @@
 
 int	main(int argc, char **argv)
 {
-	t_list	*list_a;
-	
+	t_list	*stack_a;
+
 }
