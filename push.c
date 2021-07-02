@@ -1,15 +1,15 @@
 #include "push_swap.h"
 
-void	pa(t_list **list_a, t_list **list_b, int p)
+void	pa(t_list **stack_a, t_list **stack_b, int p)
 {
 	t_list	*temp;
 
-	if (!(*list_b))
+	if (!(*stack_b))
 		return ;
-	temp = *list_b;
-	*list_b = (*list_b)->next;
-	temp->next = *list_a;
-	*list_a = temp;
+	temp = *stack_b;
+	*stack_b = (*stack_b)->next;
+	temp->next = *stack_a;
+	*stack_a = temp;
 	if (p == 1)
 		ft_putstr("pa\n");
 	if (p == 2)
@@ -19,16 +19,16 @@ void	pa(t_list **list_a, t_list **list_b, int p)
 	}
 }
 
-void	pa(t_list **list_a, t_list **list_b, int p)
+void	pb(t_list **stack_a, t_list **stack_b, int p)
 {
 	t_list	*temp;
 
-	if (!(*list_a))
+	if (!(*stack_a))
 		return ;
-	temp = *list_a;
-	*list_a = (*list_a)->next;
-	temp->next = *list_b;
-	*list_b = temp;
+	temp = *stack_a;
+	*stack_a = (*stack_a)->next;
+	temp->next = *stack_b;
+	*stack_b = temp;
 	if (p == 1)
 		ft_putstr("pb\n");
 	if (p == 2)

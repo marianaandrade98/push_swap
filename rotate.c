@@ -1,24 +1,36 @@
 #include "push_swap.h"
 
-void	ra(t_list **stack_a, t_list **stack_b, int p)
+/*
+**	tmp takes the head of the stack, which give it access to the whole list
+**	buff takes everything but the head 
+**	looking for last node
+**	increment until it ends
+**	tmp cuts the next link
+**	links the last node to the first
+**	puts the other numbers first
+**	ex:	stack : 1, 2 , 3 , 4
+**	final stack :	2, 3 , 4 , 1
+*/
+
+void	ra(t_list **stack_a, int p)
 {
 	t_list	*tmp;
 	t_list	*buff;
 
-	if (!(*stack_a) || !((*stack_a)->next))
+	if (!(*stack_a))
 		return ;
 	tmp = *stack_a;
-	buff = (*stack_a)->next;
-	while ((*stack_a)->next)			// looking for last node
-		*stack_a = (*stack_a)->next; //increment until it ends
-	(*stack_a)->next = tmp;			//the last node takes the first
-	tmp = NULL;
+	buff = (*stack_a)->next; 
+	while ((*stack_a)->next)
+		*stack_a = (*stack_a)->next;
+	tmp->next = NULL;
+	(*stack_a)->next = tmp;
 	*stack_a = buff;
 	if (p == 1)
 		ft_putstr("ra\n");
 }
 
-void	rb(t_list **stack_a, t_list **stack_b, int p)
+void	rb(t_list **stack_b, int p)
 {
 	t_list	*tmp;
 	t_list	*buff;
@@ -38,8 +50,8 @@ void	rb(t_list **stack_a, t_list **stack_b, int p)
 
 void	rr(t_list **stack_a, t_list **stack_b, int p)
 {
-	ra(stack_a, stack_b, 0);
-	rb(stack_a, stack_b, 0);
+	ra(stack_a, 0);
+	rb(stack_b, 0);
 	if (p == 1)
 		ft_putstr("rr\n");
 }
