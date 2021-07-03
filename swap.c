@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	sa(t_list *stack_a, t_list *stack_b, int p)
+void	sa(t_list *stack_a, int p)
 {
 	if (!stack_a)
 		return ;
@@ -12,7 +12,7 @@ void	sa(t_list *stack_a, t_list *stack_b, int p)
 	}
 }
 
-void	sb(t_list *stack_a, t_list *stack_b, int p)
+void	sb(t_list *stack_b, int p)
 {
 	if (!stack_b)
 		return ;

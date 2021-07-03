@@ -11,8 +11,8 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-void	sa(t_list *stack_a, t_list *stack_b, int p);
-void	sb(t_list *stack_a, t_list *stack_b, int p);
+void	sa(t_list *stack_a, int p);
+void	sb(t_list *stack_b, int p);
 void	ss(t_list *stack_a, t_list *stack_b, int p);
 void	pa(t_list **stack_a, t_list **stack_b, int p);
 void	pb(t_list **stack_a, t_list **stack_b, int p);

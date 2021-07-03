@@ -1,4 +1,9 @@
 #include "push_swap.h"
+/*
+**	find the last node of the temp
+**	organize everything in temp by linking again with the stack
+**	puts the organized version in the stack
+*/
 
 void	rra(t_list **stack_a, int p)
 {
@@ -9,15 +14,15 @@ void	rra(t_list **stack_a, int p)
 		return ;
 	tmp = *stack_a;
 	buff = *stack_a;
-	while (tmp->next)		//find last node of tmp
+	while (tmp->next)
 	{
 		if (tmp->next->next)
 			buff = buff->next;
 		tmp = tmp->next;
 	}
 	buff->next = NULL;
-	tmp->next = *stack_a; //organize everything in tmp
-	*stack_a = tmp;		//puts everything in the stack
+	tmp->next = *stack_a;
+	*stack_a = tmp;
 	if (p == 1)
 		ft_putstr("rra\n");
 }

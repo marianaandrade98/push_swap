@@ -1,7 +1,7 @@
 NAME	= push_swap
 CC		= gcc
 RM		= rm -f
-CFLAGS	= -Wall -Werror -Wextra
+CFLAGS	= -Wall -Werror -Wextra	-g
 INCLUDE	= push_swap.h
 
 SRCS	= main.c swap.c push.c rotate.c reverse.c
