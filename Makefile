@@ -1,27 +1,27 @@
 NAME	= push_swap
-CC		= gcc
-RM		= rm -f
-CFLAGS	= -Wall -Werror -Wextra	-g
-INCLUDE	= push_swap.h
 
-SRCS	= main.c swap.c push.c rotate.c reverse.c
+RM		= rm -f
+
+CFLAGS	= -Wall -Werror -Wextra	-g
+
+LIBFT	= ./libft/libft.a
+
+SRCS	= main.c reverse.c rotate.c swap.c
+ #push.c 
 
 OBJS	= $(SRCS:.c=.o)
-
 all : $(NAME)
 
-$(NAME):    $(OBJS) $(INCLUDE)
-			ar -rcs $(NAME) $(OBJS)
-			ranlib  $(NAME)
+$(NAME):	$(OBJS)
+		$(MAKE) bonus -C libft
+		gcc $(OBJS) $(FLAGS) $(LIBFT) -o $(NAME)
 
-.c.o:
-			$(CC) $(CFLAGS) -I$(INCLUDE) -c $< -o $(<:.c=.o)
 
 clean:
-			$(RM) $(OBJS) $(BONUS_O)
+			$(RM) $(OBJS)
 
 fclean:		clean
-			$(RM) $(NAME)
+			$(RM) $(OBJS) $(NAME)
 re:			fclean all
 
 .PHONY: all, clean, fclean, re

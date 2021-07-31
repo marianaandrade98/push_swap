@@ -71,5 +71,6 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 void    			ft_swap(int *a, int *b);
 void				ft_putstr(char const *s);
+void				ft_putchar(char c);
 
 #endif

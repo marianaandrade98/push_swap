@@ -13,10 +13,7 @@ void	pa(t_list **stack_a, t_list **stack_b, int p)
 	if (p == 1)
 		ft_putstr("pa\n");
 	if (p == 2)
-	{
 		ft_putstr("Execute pa:\n\n");
-
-	}
 }
 
 void	pb(t_list **stack_a, t_list **stack_b, int p)
@@ -32,8 +29,5 @@ void	pb(t_list **stack_a, t_list **stack_b, int p)
 	if (p == 1)
 		ft_putstr("pb\n");
 	if (p == 2)
-	{
 		ft_putstr("Execute pb:\n\n");
-		
-	}
 }

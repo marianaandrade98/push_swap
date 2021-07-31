@@ -5,11 +5,11 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-typedef struct s_list
-{
-	int				content;
-	struct s_list	*next;
-}					t_list;
+// typedef struct s_list
+// {
+// 	void			*content;
+// 	struct s_list	*next;
+// }					t_list;
 
 void	sa(t_list *stack_a, int p);
 void	sb(t_list *stack_b, int p);
