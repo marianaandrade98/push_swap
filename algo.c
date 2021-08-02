@@ -2,20 +2,29 @@
 
 void	sort_3(t_list **stack_a)
 {
-	if (*stack_a > (*stack_a)->next && (*stack_a)->next < (*stack_a)->next->next) //case 1
+	int	botton;
+	int	middle;
+	int	top;
+
+	botton = (int)(*stack_a)->next->next->content;
+	middle = (int)(*stack_a)->next->content;
+	top = (int)(*stack_a)->content;
+	if (top > middle && middle < botton && botton > top)
+	{
 		sa(stack_a, 1);
-	else if (*stack_a > (*stack_a)->next && (*stack_a)->next > (*stack_a)->next->next) //case 2
+	}
+	else if (top > middle && middle > botton && botton < top)
 	{
 		sa(stack_a, 1);
 		rra(stack_a, 1);
 	}
-	else if (*stack_a > (*stack_a)->next && (*stack_a)->next->next < *stack_a)  //case 3
+	else if (top > middle && middle < botton && botton < top)
 		ra(stack_a, 1);
-	else if (*stack_a < (*stack_a)->next && (*stack_a)->next->next > *stack_a)   //case 4
+	else if (top < middle && middle > botton && botton > top)
 	{
 		sa(stack_a, 1);
 		ra(stack_a, 1);
 	}
-	else if (*stack_a < (*stack_a)->next && (*stack_a)->next > (*stack_a)->next->next) //case 5
+	else if (top < middle && middle > botton && botton < top)
 		rra(stack_a, 1);
 }

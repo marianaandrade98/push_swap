@@ -1,9 +1,10 @@
 #include "push_swap.h"
-#include <stdio.h>
+
 
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
+	t_list	*stack_b;
 	t_list	*head;
 	int		i;
 	int		p;
@@ -12,6 +13,7 @@ int	main(int argc, char **argv)
 		return (0);
 	i = 1;
 	stack_a = NULL;
+	stack_b = NULL;
 
 	while (argv[i])
 	{
@@ -19,40 +21,21 @@ int	main(int argc, char **argv)
 		ft_lstadd_back(&stack_a, ft_lstnew((void *)(size_t)p));
 		i++;
 	}
-	head = stack_a;
-	// sa(stack_a, 1);
+	sort_3(&stack_a);
+
+	
+	
+	
+	printf("stack A\n");
 	while (stack_a)
 	{
-		printf("%d, \n", (int)stack_a->content);
+		printf("%d, \n", (int)stack_a->content);	
 		stack_a = stack_a->next;
 	}
-	// int *p = malloc(sizeof(int));
-	// if (!p)
-	// 	return 0;
-	// *p = 2;
-	// ft_lstadd_back(&stack_a, ft_lstnew(p));
-	// current = stack_a;
-	// p = malloc(sizeof(int));
-	// *p = 1;
-	// ft_lstadd_back(&stack_a, ft_lstnew(p));
-	// p = malloc(sizeof(int));
-	// *p = 3;
-	// ft_lstadd_back(&stack_a, ft_lstnew(p));
-	
-	// sort_3(stack_a);
-
-	// while (current)
-	// {
-	// 	printf("%d, ", current->content);
-	// 	current = current->next;
-	// }
-
+	printf("stack B\n");
+	while (stack_b)
+	{
+		printf("%d, \n", (int)stack_b->content);
+		stack_b = stack_b->next;
+	}
 }
-
-/*
-void print(Node *head) {
-    Node *current_node = head;
-   	while ( current_node != NULL) {
-        printf("%d ", current_node->data);
-        current_node = current_node->next;
-*/

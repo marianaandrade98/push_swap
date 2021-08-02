@@ -6,8 +6,8 @@ CFLAGS	= -Wall -Werror -Wextra	-g
 
 LIBFT	= ./libft/libft.a
 
-SRCS	= main.c reverse.c rotate.c swap.c
- #push.c 
+SRCS	= main.c reverse.c rotate.c swap.c push.c algo.c
+
 
 OBJS	= $(SRCS:.c=.o)
 all : $(NAME)
