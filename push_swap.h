@@ -6,11 +6,11 @@
 # include "libft/libft.h"
 # include <stdio.h>
 
-// typedef struct s_list
-// {
-// 	void			*content;
-// 	struct s_list	*next;
-// }					t_list;
+typedef struct
+{
+	int			*stack;
+
+}					info;
 
 void	sa(t_list **stack_a, int p);
 void	sb(t_list *stack_b, int p);
@@ -25,5 +25,9 @@ void	rrb(t_list **stack_b, int p);
 void	rrr(t_list **stack_a, t_list **stack_b, int p);
 
 void	sort_3(t_list **stack_a);
+int	    middle_numb(t_list **stack_a);
+void	stackA_to_stackB(t_list **stack_a, t_list **stack_b);
+int	    verify_to_send(t_list **stack_a);
+void	verify_pos(t_list **stack_a, t_list **stack_b);
 
 # endif

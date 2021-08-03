@@ -24,6 +24,8 @@ int	main(int argc, char **argv)
 	if (argc == 4)
 		sort_3(&stack_a);
 
+	verify_pos(&stack_a, &stack_b);
+	
 	
 	printf("stack A\n");
 	while (stack_a)
