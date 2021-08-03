@@ -21,10 +21,9 @@ int	main(int argc, char **argv)
 		ft_lstadd_back(&stack_a, ft_lstnew((void *)(size_t)p));
 		i++;
 	}
-	sort_3(&stack_a);
+	if (argc == 4)
+		sort_3(&stack_a);
 
-	
-	
 	
 	printf("stack A\n");
 	while (stack_a)
