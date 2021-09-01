@@ -5,7 +5,7 @@ int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	t_list	*head;
+	//t_list	*head;
 	int		i;
 	int		p;
 
@@ -14,7 +14,6 @@ int	main(int argc, char **argv)
 	i = 1;
 	stack_a = NULL;
 	stack_b = NULL;
-
 	while (argv[i])
 	{
 		p = ft_atoi(argv[i]);
@@ -23,8 +22,12 @@ int	main(int argc, char **argv)
 	}
 	if (argc == 4)
 		sort_3(&stack_a);
-
-	verify_pos(&stack_a, &stack_b);
+	if (argc > 4)
+	{
+		
+		// stackA_to_stackB(&stack_a, &stack_b);
+		verify_pos(&stack_a, &stack_b);
+	}
 	
 	
 	printf("stack A\n");

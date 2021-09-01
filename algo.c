@@ -37,10 +37,12 @@ void	sort_3(t_list **stack_a)
 
 int	middle_numb(t_list **stack_a)
 {
-	int *stack;
-	int	i;
-	int size;
+	int 	*stack;
+	int		i;
+	int 	size;
+	t_list	*head;
 
+	head = *stack_a;
 	i = 0;
 	size = ft_lstsize(*stack_a);
 	stack = malloc(size);
@@ -51,6 +53,9 @@ int	middle_numb(t_list **stack_a)
 		stack[i++] = (int)(*stack_a)->content;
 		*stack_a = (*stack_a)->next;
 	}
+	stack_a = &head;
+	// printf("count = %d \n", (int)(*head).content);
+	// printf("count = %d \n", (int)(*stack_a)->content);
 	i = 0;
 	while (stack[i])
 	{
@@ -64,34 +69,41 @@ int	middle_numb(t_list **stack_a)
 	return (stack[size / 2]);
 }
 
-void	stackA_to_stackB(t_list **stack_a, t_list **stack_b)
-{
-	int		middle;
-	t_list	*head;
+// void	stackA_to_stackB(t_list **stack_a, t_list **stack_b)
+// {
+// 	int		middle;
+// 	t_list	*head;
 
-	head = *stack_a;
-	middle = middle_numb(&stack_a);
-	while ((int)(*stack_a)->content < middle)
-	{
-		pb(stack_a, stack_b, 1);
-		
-	}
-}
+// 	head = *stack_a;
+// 	middle = middle_numb(stack_a);
+// 	while (*stack_a)
+// 	{
+// 		while ((int)(*stack_a)->content < middle)
+// 			pb(stack_a, stack_b, 1);
+// 	}
+// 	printf("count = %d \n", (int)(*stack_a)->content);
+// 	stack_a = &head;
+// }
 
 int	verify_to_send(t_list **stack_a)
 {
 	int		middle;
 	int 	count;
+	t_list	*head;
 
+	head = *stack_a;
 	count = 0;
-	middle = middle_numb(&stack_a);
+	middle = middle_numb(stack_a);
+	printf("count = %d \n", (int)(*stack_a)->content);
 	while (*stack_a)
 	{
+		printf("here\n");
 		if ((int)(*stack_a)->content < middle)
 			return (count);
 		*stack_a = (*stack_a)->next;
 		count++;
 	}
+	stack_a = &head;
 	return (-1);
 }
 
@@ -100,18 +112,18 @@ void	verify_pos(t_list **stack_a, t_list **stack_b)
 	int	n;
 	int	middle;
 
-	n = to_send(&stack_a);
+	n = verify_to_send(stack_a);
 	middle = ft_lstsize(*stack_a) / 2;
 	while (n > 0)
 	{
-		n = to_send(&stack_a);
-		while (*stack_a < middle)
-			pb(&stack_a, &stack_b, 1);
+		// printf("here pos\n");
+		while ((int)(*stack_a)->content < middle)
+			pb(stack_a, stack_b, 1);
 		if (n < middle)
-			rra(&stack_a, 1);
+			rra(stack_a, 1);
 		else
-			ra(&stack_a, 1);
-		while (*stack_a < middle)
-			pb(&stack_a, &stack_b, 1);
+			ra(stack_a, 1);
+		// while ((int)(*stack_a)->content < middle)
+		// 	pb(stack_a, stack_b, 1);
 	}
 }
