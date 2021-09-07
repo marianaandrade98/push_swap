@@ -55,7 +55,6 @@ int	middle_numb(t_list **stack_a)
 	}
 	stack_a = &head;
 	// printf("count = %d \n", (int)(*head).content);
-	// printf("count = %d \n", (int)(*stack_a)->content);
 	i = 0;
 	while (stack[i])
 	{
@@ -66,6 +65,7 @@ int	middle_numb(t_list **stack_a)
 		}
 		i++;
 	}
+	// printf("count = %d \n", (int)(*stack_a)->content);
 	return (stack[size / 2]);
 }
 
@@ -94,7 +94,7 @@ int	verify_to_send(t_list **stack_a)
 	head = *stack_a;
 	count = 0;
 	middle = middle_numb(stack_a);
-	printf("count = %d \n", (int)(*stack_a)->content);
+	stack_a = &head;
 	while (*stack_a)
 	{
 		printf("here\n");
@@ -103,7 +103,9 @@ int	verify_to_send(t_list **stack_a)
 		*stack_a = (*stack_a)->next;
 		count++;
 	}
-	stack_a = &head;
+	// stack_a = &head;
+	// printf("count = %d \n", (int)(*head).content);
+	// printf("count = %d \n", (int)(*stack_a)->content);
 	return (-1);
 }
 
@@ -111,12 +113,16 @@ void	verify_pos(t_list **stack_a, t_list **stack_b)
 {
 	int	n;
 	int	middle;
+	t_list	*head;
 
+	head = *stack_a;
 	n = verify_to_send(stack_a);
+	stack_a = &head;
 	middle = ft_lstsize(*stack_a) / 2;
+	stack_a = &head;
 	while (n > 0)
 	{
-		// printf("here pos\n");
+		printf("here pos\n");
 		while ((int)(*stack_a)->content < middle)
 			pb(stack_a, stack_b, 1);
 		if (n < middle)
