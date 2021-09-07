@@ -10,11 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC          = gcc
-CFLAGS      = -Wall -Wextra -Werror
-RM          = rm -f
 NAME        = libft.a
-INCLUDE     = libft.h
+HEADER		= libft.h
+INCLUDES	= -Idouble_lst -I.
+FLAGS      	= -Wall -Wextra -Werror -g
+RM          = rm -f
 
 SRCS        = ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
                 ft_isascii.c ft_isdigit.c ft_isprint.c ft_memccpy.c \
@@ -28,14 +28,36 @@ SRCS        = ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 
 OBJS        = $(SRCS:.c=.o)
 
+SRCS_DLST = double_lst/ft_dlstadd_back.c \
+			double_lst/ft_dlstadd_front.c \
+			double_lst/ft_dlst_clear.c \
+			double_lst/ft_dlst_first.c \
+			double_lst/ft_dlst_last.c \
+			double_lst/ft_dlst_max.c \
+			double_lst/ft_dlst_min.c \
+			double_lst/ft_dlst_new.c \
+			double_lst/ft_dlst_remove.c \
+			double_lst/ft_dlst_size.c \
+			double_lst/ft_dlstis_dup.c \
+			double_lst/ft_dlstis_sorted.c \
+			double_lst/ft_dlst_print.c
+
+OBJS_DLST = $(SRCS_DLST:.c=.o)
+
 BONUS_S     = ft_lstsize.c ft_lstnew.c ft_lstmap.c ft_lstiter.c ft_lstlast.c \
             	ft_lstdelone.c ft_lstclear.c ft_lstadd_front.c ft_lstadd_back.c
 
 BONUS_O =	$(BONUS_S:.c=.o)
 
+%.o: %.c 
+	gcc $(FLAGS) $(INCLUDES) -c -o $@ $<
+
+$(NAME): $(OBJS) $(BONUS_O) $(OBJS_DLST)
+	ar -rs $(NAME) $(OBJS) $(BONUS_O) $(OBJS_DLST)
+
 all:		$(NAME)
 
-$(NAME):    $(OBJS) $(INCLUDE)
+$(NAME):    $(OBJS) $(HEADER)
 			ar -rcs $(NAME) $(OBJS)
 			ranlib  $(NAME)
 
@@ -43,13 +65,14 @@ bonus:		$(NAME) $(BONUS_O)
 			ar -rcs $(NAME) $(BONUS_O)
 
 .c.o:
-			$(CC) $(CFLAGS) -I$(INCLUDE) -c $< -o $(<:.c=.o)
+			gcc $(FLAGS) -I$(HEADER) -c $< -o $(<:.c=.o)
 
 clean:
-			$(RM) $(OBJS) $(BONUS_O)
+			$(RM) $(OBJS) $(BONUS_O) $(OBJS_DLST)
 
 fclean:		clean
 			$(RM) $(NAME)
+
 re:			fclean all
 
 rebonus:	fclean bonus
