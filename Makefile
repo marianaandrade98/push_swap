@@ -19,9 +19,11 @@ $(NAME):	$(OBJS)
 
 clean:
 			$(RM) $(OBJS)
+			$(MAKE) clean -C libft 
 
 fclean:		clean
 			$(RM) $(OBJS) $(NAME)
+			$(MAKE) fclean -C libft 
 re:			fclean all
 
 .PHONY: all, clean, fclean, re
