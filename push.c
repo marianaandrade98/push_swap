@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-void	pa(t_list **stack_a, t_list **stack_b, int p)
+void	pa(t_stack **stack_a, t_stack **stack_b, int p)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	if (!(*stack_b))
 		return ;
@@ -14,9 +14,9 @@ void	pa(t_list **stack_a, t_list **stack_b, int p)
 		ft_putstr("pa\n");
 }
 
-void	pb(t_list **stack_a, t_list **stack_b, int p)
+void	pb(t_stack **stack_a, t_stack **stack_b, int p)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	if (!(*stack_a))
 		return ;

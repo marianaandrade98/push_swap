@@ -12,10 +12,10 @@
 **	final stack :	2, 3 , 4 , 1
 */
 
-void	ra(t_list **stack_a, int p)
+void	ra(t_stack **stack_a, int p)
 {
-	t_list	*tmp;
-	t_list	*buff;
+	t_stack	*tmp;
+	t_stack	*buff;
 
 	if (!(*stack_a))
 		return ;
@@ -30,10 +30,10 @@ void	ra(t_list **stack_a, int p)
 		ft_putstr("ra\n");
 }
 
-void	rb(t_list **stack_b, int p)
+void	rb(t_stack **stack_b, int p)
 {
-	t_list	*tmp;
-	t_list	*buff;
+	t_stack	*tmp;
+	t_stack	*buff;
 
 	if (!(*stack_b) || !((*stack_b)->next))
 		return ;
@@ -48,7 +48,7 @@ void	rb(t_list **stack_b, int p)
 		ft_putstr("rb\n");
 }
 
-void	rr(t_list **stack_a, t_list **stack_b, int p)
+void	rr(t_stack **stack_a, t_stack **stack_b, int p)
 {
 	ra(stack_a, 0);
 	rb(stack_b, 0);

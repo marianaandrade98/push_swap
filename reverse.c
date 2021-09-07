@@ -6,10 +6,10 @@
 **	puts the organized version in the stack
 */
 
-void	rra(t_list **stack_a, int p)
+void	rra(t_stack **stack_a, int p)
 {
-	t_list	*tmp;
-	t_list	*buff; //test this, it may not be necessary
+	t_stack	*tmp;
+	t_stack	*buff; //test this, it may not be necessary
 
 	if (!(*stack_a))
 		return ;
@@ -28,10 +28,10 @@ void	rra(t_list **stack_a, int p)
 		ft_putstr("rra\n");
 }
 
-void	rrb(t_list **stack_b, int p)
+void	rrb(t_stack **stack_b, int p)
 {
-	t_list	*tmp;
-	t_list	*buff;
+	t_stack	*tmp;
+	t_stack	*buff;
 
 	if (!(*stack_b))
 		return ;
@@ -50,7 +50,7 @@ void	rrb(t_list **stack_b, int p)
 		ft_putstr("rrb\n");
 }
 
-void	rrr(t_list **stack_a, t_list **stack_b, int p)
+void	rrr(t_stack **stack_a, t_stack **stack_b, int p)
 {
 	rra(stack_a, 0);
 	rrb(stack_b, 0);
