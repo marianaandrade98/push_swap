@@ -1,22 +1,38 @@
 #include "push_swap.h"
 
 
+void	build_stack(int input, t_stack **stack)
+{
+	t_stack	*temp;
+
+	if (*stack == NULL)
+		*stack = ft_dlst_new(input);
+	else
+	{
+		temp = ft_dlst_new(input);
+		ft_dlstadd_back(stack, temp);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		i;
-	int		p;
 
 	i = 1;
 	stack_a = NULL;
 	stack_b = NULL;
-	while (argv[i])
+	printf("before validations");
+	validations(argc, argv, 1);
+	while (i < argc)
 	{
-		p = ft_atoi(argv[i]);
-		ft_lstadd_back(&stack_a, ft_lstnew((void *)(size_t)p));
+		build_stack(ft_atoi(argv[i]), &stack_a);
 		i++;
 	}
+	printf("before sorting");
+	sorting(&stack_a, &stack_b);
+	printf("after sorting");
 	
 	
 	printf("stack A\n");
