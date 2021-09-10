@@ -26,15 +26,15 @@ void	algo_small(t_stack **stack)
 	while (sorted != 1)
 	{
 		if ((*stack)->data == max)
-			ra(stack, 1);
+			ft_rotate_ra(stack);
 		if ((*stack)->data > (*stack)->next->data)
-			sa(*stack, 1);
+			ft_swap_sa(*stack);
 		if ((*stack)->data != min)
-			rra(stack, 1);
+			ft_rrotate_rra(stack);
 		if (ft_dlstis_sorted_ascend(*stack) == 1)
 			break ;
 		else if ((*stack)->data == min)
-			rra(stack, 1);
+			ft_rrotate_rra(stack);
 		sorted = ft_dlstis_sorted_ascend(*stack);
 	}
 }

@@ -2,8 +2,8 @@
 
 static int	check_digit(char *str)
 {
-	int i;
-	int a;
+	int	i;
+	int	a;
 
 	i = 0;
 	if ((str[i] == '-' || str[i] == '+') && ft_strlen(str) >= 2)
@@ -20,7 +20,7 @@ static int	check_digit(char *str)
 
 static int	check_int(char *str)
 {
-	long long i;
+	long long	i;
 
 	i = ft_atoll(str);
 	if (i > 2147483647 || i < -2147483648)
@@ -30,13 +30,13 @@ static int	check_int(char *str)
 
 static int	check_dup(int argc, char **argv, int i , t_stack **checker)
 {
-	int	holder;
-	t_stack	*head;
+	int		holder;
+	t_stack	*holds_head;
 
 	while (++i < argc)
 		build_stack(ft_atoi(argv[i]), checker);
-	head = *checker;
-	while (head->next)
+	holds_head = *checker;
+	while (holds_head->next)
 	{
 		holder = (*checker)->data;
 		while ((*checker)->next)
@@ -49,8 +49,8 @@ static int	check_dup(int argc, char **argv, int i , t_stack **checker)
 			else
 				*checker = (*checker)->next;
 		}
-		head = head->next;
-		*checker = head;
+		holds_head = holds_head->next;
+		*checker = holds_head;
 	}
 	ft_dlst_clear(checker);
 	return (0);
@@ -63,7 +63,7 @@ void	validations(int argc, char **argv, int i)
 	checker = NULL;
 	if (argc == 1)
 		exit(0);
-	while (1 <= argc - 1)
+	while (i <= argc - 1)
 	{
 		if (check_digit(argv[i]) == 0)
 		{
@@ -82,4 +82,5 @@ void	validations(int argc, char **argv, int i)
 			ft_putstr_fd("Error\n", 2);
 			exit(EXIT_FAILURE);
 	}
+		printf("inside validations\n");
 }

@@ -6,54 +6,33 @@
 **	puts the organized version in the stack
 */
 
-void	rra(t_stack **stack_a, int p)
+static void	ft_rrotate(t_stack **stack)
 {
-	t_stack	*tmp;
-	t_stack	*buff; //test this, it may not be necessary
+	t_stack	*temp;
 
-	if (!(*stack_a))
+	if (!stack)
 		return ;
-	tmp = *stack_a;
-	buff = *stack_a;
-	while (tmp->next)
-	{
-		if (tmp->next->next)
-			buff = buff->next;
-		tmp = tmp->next;
-	}
-	buff->next = NULL;
-	tmp->next = *stack_a;
-	*stack_a = tmp;
-	if (p == 1)
-		ft_putstr("rra\n");
+	temp = ft_dlst_last(*stack);
+	temp->prev->next = NULL;
+	ft_dlstadd_front(stack, ft_dlst_new(temp->data));
+	ft_dlst_remove(&temp);
 }
 
-void	rrb(t_stack **stack_b, int p)
+void	ft_rrotate_rra(t_stack **stack)
 {
-	t_stack	*tmp;
-	t_stack	*buff;
-
-	if (!(*stack_b))
-		return ;
-	tmp = *stack_b;
-	buff = *stack_b;
-	while (tmp->next)
-	{
-		if (tmp->next->next)
-			buff = buff->next;
-		tmp = tmp->next;
-	}
-	buff->next = NULL;
-	tmp->next = *stack_b;
-	*stack_b = tmp;
-	if (p == 1)
-		ft_putstr("rrb\n");
+	ft_putstr_fd("rra\n", 1);
+	ft_rrotate(stack);
 }
 
-void	rrr(t_stack **stack_a, t_stack **stack_b, int p)
+void	ft_rrotate_rrb(t_stack **stack)
 {
-	rra(stack_a, 0);
-	rrb(stack_b, 0);
-	if (p == 1)
-		ft_putstr("rrr\n");
+	ft_putstr_fd("rrb\n", 1);
+	ft_rrotate(stack);
+}
+
+void	ft_rrotate_rrr(t_stack **stack_a, t_stack **stack_b)
+{
+	ft_putstr_fd("rrr\n", 1);
+	ft_rrotate(stack_a);
+	ft_rrotate(stack_b);
 }

@@ -23,16 +23,16 @@ int	main(int argc, char **argv)
 	i = 1;
 	stack_a = NULL;
 	stack_b = NULL;
-	printf("before validations");
+	printf("before validations\n");
 	validations(argc, argv, 1);
 	while (i < argc)
 	{
 		build_stack(ft_atoi(argv[i]), &stack_a);
 		i++;
 	}
-	printf("before sorting");
+	printf("before sorting\n");
 	sorting(&stack_a, &stack_b);
-	printf("after sorting");
+	printf("after sorting\n");
 	
 	
 	printf("stack A\n");
