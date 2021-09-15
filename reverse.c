@@ -18,21 +18,38 @@ static void	ft_rrotate(t_stack **stack)
 	ft_dlst_remove(&temp);
 }
 
-void	ft_rrotate_rra(t_stack **stack)
+void	rra(t_stack **stack_a, int p)
 {
-	ft_putstr_fd("rra\n", 1);
-	ft_rrotate(stack);
+	t_stack	*temp;
+
+	if (!stack_a)
+		return ;
+	temp = ft_dlst_last(*stack_a);
+	temp->prev->next = NULL;
+	ft_dlstadd_front(stack_a, ft_dlst_new(temp->data));
+	ft_dlst_remove(&temp);
+	if (p == 1)
+		ft_putstr_fd("rra\n", 1);
 }
 
-void	ft_rrotate_rrb(t_stack **stack)
+void	rrb(t_stack **stack_b, int p)
 {
-	ft_putstr_fd("rrb\n", 1);
-	ft_rrotate(stack);
+	t_stack	*temp;
+
+	if (!stack_b)
+		return ;
+	temp = ft_dlst_last(*stack_b);
+	temp->prev->next = NULL;
+	ft_dlstadd_front(stack_b, ft_dlst_new(temp->data));
+	ft_dlst_remove(&temp);
+	if (p == 1)
+		ft_putstr_fd("rrb\n", 1);
 }
 
-void	ft_rrotate_rrr(t_stack **stack_a, t_stack **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b, int p)
 {
-	ft_putstr_fd("rrr\n", 1);
-	ft_rrotate(stack_a);
-	ft_rrotate(stack_b);
+	rra(stack_a, 0);
+	rrb(stack_b, 0);
+	if (p == 1)
+		ft_putstr_fd("rrr\n", 1);
 }

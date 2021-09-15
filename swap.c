@@ -1,36 +1,44 @@
 #include "push_swap.h"
 
-static void	swap(t_stack *stack)
+void	sa(t_stack *stack_a, int p)
 {
 	int	temp;
 
-	stack = ft_dlst_first(stack);
-	if (stack->next == NULL || !stack)
+	stack_a = ft_dlst_first(stack_a);
+	if (stack_a->next == NULL || !stack_a)
 		return ;
 	{
-		temp = stack->next->data;
-		stack->next->data = stack->data;
-		stack->data = temp;
+		temp = stack_a->next->data;
+		stack_a->next->data = stack_a->data;
+		stack_a->data = temp;
 	}
-	stack = ft_dlst_first(stack);
+	stack_a = ft_dlst_first(stack_a);
+	if (p == 1)
+		ft_putstr_fd("sa\n", 1);
 }
 
-void	ft_swap_sa(t_stack *stack_a)
+void	sb(t_stack *stack_b, int p)
 {
-	ft_putstr_fd("sa\n", 1);
-	swap(stack_a);
+	int	temp;
+
+	stack_b = ft_dlst_first(stack_b);
+	if (stack_b->next == NULL || !stack_b)
+		return ;
+	{
+		temp = stack_b->next->data;
+		stack_b->next->data = stack_b->data;
+		stack_b->data = temp;
+	}
+	stack_b = ft_dlst_first(stack_b);
+	if (p == 1)
+		ft_putstr_fd("sb\n", 1);
 }
 
-void	ft_swap_sb(t_stack *stack_b)
+void	ss(t_stack *stack_a, t_stack *stack_b, int p)
 {
-	ft_putstr_fd("sb\n", 1);
-	swap(stack_b);
-}
-
-void	ft_swap_ss(t_stack *stack_a, t_stack *stack_b)
-{
-	ft_putstr_fd("ss\n", 1);
-	swap(stack_a);
-	swap(stack_b);
+	sa(stack_a, 0);
+	sb(stack_b, 0);
+	if (p == 1)
+		ft_putstr_fd("ss\n", 1);
 }
 

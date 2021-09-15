@@ -4,16 +4,17 @@ void	sorting(t_stack **stack_a, t_stack **stack_b)
 {
 	int	size;
 
-	*stack_b = NULL;
 	size = ft_dlst_size(*stack_a);
 	if (ft_dlstis_sorted_ascend(*stack_a) == 0)
 	{
 		if (size <= 3)
-			algo_small(stack_a);
+			algo_3(stack_a);
+		else if (size <= 5)
+			algo_5(stack_a, stack_b);
 	}
 }
 
-void	algo_small(t_stack **stack)
+void	algo_3(t_stack **stack)
 {
 	int	max;
 	int	min;
@@ -26,15 +27,38 @@ void	algo_small(t_stack **stack)
 	while (sorted != 1)
 	{
 		if ((*stack)->data == max)
-			ft_rotate_ra(stack);
+			ra(stack, 1);
 		if ((*stack)->data > (*stack)->next->data)
-			ft_swap_sa(*stack);
+			sa(*stack, 1);
 		if ((*stack)->data != min)
-			ft_rrotate_rra(stack);
+			rra(stack, 1);
 		if (ft_dlstis_sorted_ascend(*stack) == 1)
 			break ;
 		else if ((*stack)->data == min)
-			ft_rrotate_rra(stack);
+			rra(stack, 1);
 		sorted = ft_dlstis_sorted_ascend(*stack);
 	}
+}
+
+void	sort_5(t_stack **stack_a, t_stack **stack_b)
+{
+	int	min;
+	int	sorted;
+	int	i;
+
+	sorted = 0;
+	i = 0;
+	while (i < 2)
+	{
+		min = ft_dlst_min(*stack_a);
+		*stack_a = ft_dlst_first(*stack_a);
+		if ((*stack_a)->data == min);
+		{
+			pb(stack_a, stack_b, 1);
+			i++;
+		}
+	}
+	algo_3(stack_b);
+	while (*stack_b)
+		pa(stack_b, stack_a);
 }
