@@ -4,7 +4,7 @@
 **  checks if there is a duplicate number
 */
 
-int ft_dlstis_dup(t_stack *stack)
+int	ft_dlstis_dup(t_stack *stack)
 {
 	if (!stack)
 		return (1);

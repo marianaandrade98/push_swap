@@ -24,10 +24,5 @@ void		sorting(t_stack **stack_a, t_stack **stack_b);
 void		algo_3(t_stack **stack);
 void		algo_5(t_stack **stack_a, t_stack **stack_b);
 int			is_down_middle(t_stack *stack, int min);
-// void	sort_3(t_stack **stack_a);
-// int	    middle_numb(t_stack **stack_a);
-// void	stackA_to_stackB(t_stack **stack_a, t_stack **stack_b);
-// int	    verify_to_send(t_stack **stack_a);
-// void	verify_pos(t_stack **stack_a, t_stack **stack_b);
 
-# endif
+#endif

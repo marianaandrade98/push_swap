@@ -41,4 +41,3 @@ void	ss(t_stack *stack_a, t_stack *stack_b, int p)
 	if (p == 1)
 		ft_putstr_fd("ss\n", 1);
 }
-

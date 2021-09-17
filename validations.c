@@ -28,7 +28,7 @@ static int	check_int(char *str)
 	return (1);
 }
 
-static int	check_dup(int argc, char **argv, int i , t_stack **checker)
+static int	check_dup(int argc, char **argv, int i, t_stack **checker)
 {
 	int		holder;
 	t_stack	*holds_head;
@@ -79,7 +79,7 @@ void	validations(int argc, char **argv, int i)
 	}
 	if (check_dup(argc, argv, 0, &checker) == 1)
 	{
-			ft_putstr_fd("Error\n", 2);
-			exit(EXIT_FAILURE);
+		ft_putstr_fd("Error\n", 2);
+		exit(EXIT_FAILURE);
 	}
 }

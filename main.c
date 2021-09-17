@@ -1,6 +1,5 @@
 #include "push_swap.h"
 
-
 void	build_stack(int input, t_stack **stack)
 {
 	t_stack	*temp;
@@ -31,12 +30,11 @@ int	main(int argc, char **argv)
 	}
 	sorting(&stack_a, &stack_b);
 	printf("after sorting\n");
-	
-	
+
 	printf("stack A\n");
 	while (stack_a)
 	{
-		printf("%d, \n", stack_a->data);	
+		printf("%d, \n", stack_a->data);
 		stack_a = stack_a->next;
 	}
 	printf("stack B\n");
@@ -45,7 +43,7 @@ int	main(int argc, char **argv)
 		printf("%d, \n", stack_b->data);
 		stack_b = stack_b->next;
 	}
-	
+
 	ft_dlst_clear(&stack_a);
 	ft_dlst_clear(&stack_b);
 	return (0);

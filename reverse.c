@@ -1,5 +1,5 @@
 #include "push_swap.h"
-#include "libft/libft.h"
+
 /*
 **	find the last node of the temp
 **	organize everything in temp by linking again with the stack
