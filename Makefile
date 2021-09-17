@@ -7,7 +7,7 @@ CFLAGS	= -Wall -Werror -Wextra	-g
 LIBFT	= ./libft/libft.a
 
 SRCS	= main.c reverse.c rotate.c swap.c push.c validations.c  sorting.c \
-			
+			algo_5_utils.c
 
 
 OBJS	= $(SRCS:.c=.o)

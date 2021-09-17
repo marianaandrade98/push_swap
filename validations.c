@@ -82,5 +82,4 @@ void	validations(int argc, char **argv, int i)
 			ft_putstr_fd("Error\n", 2);
 			exit(EXIT_FAILURE);
 	}
-		printf("inside validations\n");
 }

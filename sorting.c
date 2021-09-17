@@ -40,7 +40,7 @@ void	algo_3(t_stack **stack)
 	}
 }
 
-void	sort_5(t_stack **stack_a, t_stack **stack_b)
+void	algo_5(t_stack **stack_a, t_stack **stack_b)
 {
 	int	min;
 	int	sorted;
@@ -52,13 +52,17 @@ void	sort_5(t_stack **stack_a, t_stack **stack_b)
 	{
 		min = ft_dlst_min(*stack_a);
 		*stack_a = ft_dlst_first(*stack_a);
-		if ((*stack_a)->data == min);
+		if ((*stack_a)->data == min)
 		{
 			pb(stack_a, stack_b, 1);
 			i++;
 		}
+		else if (is_down_middle(*stack_a, min) == 1)
+			ra(stack_a, 1);
+		else
+			rra(stack_a, 1);
 	}
-	algo_3(stack_b);
+	algo_3(stack_a);
 	while (*stack_b)
-		pa(stack_b, stack_a);
+		pa(stack_a, stack_b, 1);
 }

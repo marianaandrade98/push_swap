@@ -2,28 +2,20 @@
 
 void	pa(t_stack **stack_a, t_stack **stack_b, int p)
 {
-	t_stack	*temp;
-
-	if (!(*stack_b))
+	if (!stack_b)
 		return ;
-	temp = *stack_b;
-	*stack_b = (*stack_b)->next;
-	temp->next = *stack_a;
-	*stack_a = temp;
+	ft_dlstadd_front(stack_a, ft_dlst_new((*stack_b)->data));
+	ft_dlst_remove(stack_b);
 	if (p == 1)
-		ft_putstr("pa\n");
+		ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_stack **stack_a, t_stack **stack_b, int p)
 {
-	t_stack	*temp;
-
-	if (!(*stack_a))
+	if (!stack_a)
 		return ;
-	temp = *stack_a;
-	*stack_a = (*stack_a)->next;
-	temp->next = *stack_b;
-	*stack_b = temp;
+	ft_dlstadd_front(stack_b, ft_dlst_new((*stack_a)->data));
+	ft_dlst_remove(stack_a);
 	if (p == 1)
-		ft_putstr("pb\n");
+		ft_putstr_fd("pb\n", 1);
 }
