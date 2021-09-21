@@ -24,5 +24,11 @@ void		sorting(t_stack **stack_a, t_stack **stack_b);
 void		algo_3(t_stack **stack);
 void		algo_5(t_stack **stack_a, t_stack **stack_b);
 int			is_down_middle(t_stack *stack, int min);
+void		algo_500(t_stack **stack_a, t_stack **stack_b);
+int			part_1(t_stack **stack_a, t_stack **stack_b);
+int			ft_dlst_median(t_stack *stack);
+t_stack		*builder(t_stack *stack);
+int			aux_median_check(t_stack **stack_a, int median);
+//int			median_pos(t_stack *temp, int median);
 
 #endif

@@ -11,6 +11,8 @@ void	sorting(t_stack **stack_a, t_stack **stack_b)
 			algo_3(stack_a);
 		else if (size <= 5)
 			algo_5(stack_a, stack_b);
+		else
+			algo_500(stack_a, stack_b);
 	}
 }
 
@@ -65,4 +67,14 @@ void	algo_5(t_stack **stack_a, t_stack **stack_b)
 	algo_3(stack_a);
 	while (*stack_b)
 		pa(stack_a, stack_b, 1);
+}
+
+void	algo_500(t_stack **stack_a, t_stack **stack_b)
+{
+	int	min;
+	int	count;
+
+	count = 0;
+	min = 0;
+	//continue
 }
