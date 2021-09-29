@@ -11,3 +11,16 @@ int	part_1(t_stack **stack_a, t_stack **stack_b)
 	
 	//continue
 }
+
+void	part_1_cont(t_stack **stack_a, t_stack **stack_b, int aux_median,
+			int median)
+{
+	int	stop;
+	int	comp_val;
+
+	if (ft_dlst_size(*stack_a) % 4 != 0)
+		comp_val = 0;
+	else
+		comp_val = 1;
+	stop = 
+}
