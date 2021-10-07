@@ -6,18 +6,6 @@
 **	puts the organized version in the stack
 */
 
-static void	ft_rrotate(t_stack **stack)
-{
-	t_stack	*temp;
-
-	if (!stack)
-		return ;
-	temp = ft_dlst_last(*stack);
-	temp->prev->next = NULL;
-	ft_dlstadd_front(stack, ft_dlst_new(temp->data));
-	ft_dlst_remove(&temp);
-}
-
 void	rra(t_stack **stack_a, int p)
 {
 	t_stack	*temp;

@@ -41,5 +41,7 @@ int			rotate_choice_limits(t_stack *stack, int size, int limit);
 int			part_2(t_stack **stack_a, t_stack **stack_b, int min);
 int			rotate_choice_2(t_stack *stack, int median, int limit);
 int			part_3(t_stack **stack_a, t_stack **stack_b, int min);
+void		part_4(t_stack **stack_a, t_stack **stack_b, int min);
+int			rotate_choice_3(t_stack *stack, int median);
 
 #endif

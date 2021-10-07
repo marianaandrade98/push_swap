@@ -79,5 +79,6 @@ void	algo_500(t_stack **stack_a, t_stack **stack_b)
 	min = part_1(stack_a, stack_b);
 	min = part_2(stack_a, stack_b, min);
 	min = part_3(stack_a, stack_b, min);
-	//continue
+	printf("after part 3\n");
+	part_4(stack_a, stack_b, min);
 }

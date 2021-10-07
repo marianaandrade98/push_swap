@@ -77,5 +77,47 @@ int	part_3(t_stack **stack_a, t_stack **stack_b, int min)
 	int	stop;
 
 	median = ft_dlst_median(*stack_a);
-	aux_median = 
+	aux_median = aux_median_check(*stack_a, median);
+	stop = (pos_check(*stack_a, min) - pos_check(*stack_a, aux_median));
+	while (stop > 0)
+	{
+		if ((*stack_a)->data >= aux_median && (*stack_a)->data < min)
+		{
+			pb(stack_a, stack_b, 1);
+			presort_b_500(stack_b, stack_a, min);
+			stop--;
+		}
+		else if (rotate_choice_2(*stack_a, aux_median, min) == 1)
+				ra(stack_a, 1);
+		else
+			rra(stack_a, 1);
+	}
+	printf("%d", min);
+	min = ft_dlst_min(*stack_b);
+	printf("inside part3\n");
+	sort_b_500(stack_b, stack_a, (*stack_a)->data);
+	return (min);
+}
+
+void	part_4(t_stack **stack_a, t_stack **stack_b, int min)
+{
+	int	stop;
+	int	median;
+
+	median = ft_dlst_median(*stack_a);
+	stop = pos_check(*stack_a, min);
+	while (stop > 0)
+	{
+		if ((*stack_a)-> data < min)
+		{
+			pb(stack_a, stack_b, 1);
+			presort_b_500(stack_b, stack_a, min);
+			stop--;
+		}
+		else if (rotate_choice_3(*stack_a, min) == 1)
+				ra(stack_a, 1);
+		else
+			rra(stack_a, 1);
+	}
+	sort_b_500(stack_b, stack_a, min);
 }
