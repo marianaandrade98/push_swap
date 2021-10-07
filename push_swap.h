@@ -30,8 +30,11 @@ int			ft_dlst_median(t_stack *stack);
 t_stack		*builder(t_stack *stack);
 int			aux_median_check(t_stack **stack_a, int median);
 //int			median_pos(t_stack *temp, int median);
-void	part_1_cont(t_stack **stack_a, t_stack **stack_b, int aux_median,
+void		part_1_cont(t_stack **stack_a, t_stack **stack_b, int aux_median,
 			int median);
 int			pos_check(t_stack *stack_a, int value);
+void		presort_b_500(t_stack **stack_b, t_stack **stack_a, int median);
+void		sort_b_500(t_stack **stack_b, t_stack **stack_a, int min);
+int			rotate_choice(t_stack *stack, int median);
 
 #endif

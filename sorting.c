@@ -76,5 +76,6 @@ void	algo_500(t_stack **stack_a, t_stack **stack_b)
 
 	count = 0;
 	min = 0;
+	min = part_1(stack_a, stack_b);
 	//continue
 }
