@@ -23,13 +23,22 @@ int	pos_check(t_stack *stack_a, int value)
 	return (pos);
 }
 
+
+
 void	sort_b_start(t_stack **stack_a, int min)
 {
 	int	choice;
 	int	size;
 
 	size = ft_dlst_size(*stack_a);
-	choice = is_down_middle(*stack_a, size)
+	choice = rotate_choice_limits(*stack_a, size, min);
+	while ((*stack_a)->data != min)
+	{
+		if (choice == 1)
+			ra(stack_a, 1);
+		else
+			rra(stack_a, 1);
+	}
 }
 
 void	sort_b_500(t_stack **stack_b, t_stack **stack_a, int min)
@@ -38,6 +47,20 @@ void	sort_b_500(t_stack **stack_b, t_stack **stack_a, int min)
 	int	max;
 
 	sort_b_start(stack_a, min);
+	while (*stack_b)
+	{
+		size = ft_dlst_size(*stack_b);
+		max = ft_dlst_max(*stack_b);
+		if ((*stack_b)->data == max)
+			pa(stack_a, stack_b, 1);
+		else
+		{
+			if (rotate_choice_limits(*stack_b, size, max) == 1)
+				rb(stack_b, 1);
+			else
+				rrb(stack_b, 1);
+		}
+	}
 }
 
 

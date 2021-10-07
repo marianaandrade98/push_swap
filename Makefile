@@ -8,7 +8,7 @@ LIBFT	= ./libft/libft.a
 
 SRCS	= main.c reverse.c rotate.c swap.c push.c validations.c sorting.c \
 			algo_5_utils.c median.c algo_500_utils.c algo_500_utils_1.c \
-			rotate_choice.c
+			rotate_choice.c rotate_choice_1.c
 
 
 OBJS	= $(SRCS:.c=.o)

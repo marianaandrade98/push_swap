@@ -23,23 +23,23 @@ static void	pre_sort(t_stack **stack)
 	}
 }
 
-// int	median_pos(t_stack *temp, int median)
-// {
-// 	int	pos;
+int	median_pos(t_stack *temp, int median)
+{
+	int	pos;
 
-// 	pos = 0;
-// 	while (temp->next)
-// 	{
-// 		if (temp->data == median)
-// 			break ;
-// 		else
-// 		{
-// 			temp = temp->next;
-// 			pos++;
-// 		}
-// 	}
-// 	return (pos);
-// }
+	pos = 0;
+	while (temp->next)
+	{
+		if (temp->data == median)
+			break ;
+		else
+		{
+			temp = temp->next;
+			pos++;
+		}
+	}
+	return (pos);
+}
 
 t_stack	*builder(t_stack *stack)
 {
@@ -74,7 +74,7 @@ int	ft_dlst_median(t_stack *stack)
 	return (median);
 }
 
-int	aux_median_check(t_stack **stack_a, int median)
+int	aux_median_check(t_stack *stack_a, int median)
 {
 	t_stack	*temp;
 	int		aux_median;

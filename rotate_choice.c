@@ -51,4 +51,31 @@ int	rotate_choice(t_stack *stack, int median)
 		return (1);
 }
 
+static int	position_limits(t_stack *stack, int limit)
+{
+	int	pos;
 
+	pos = 1;
+	while (stack->next)
+	{
+		if (stack->data == limit)
+			break ;
+		else
+		{
+			stack = stack->next;
+			pos++;
+		}
+	}
+	return (pos);
+}
+
+int	rotate_choice_limits(t_stack *stack, int size, int limit)
+{
+	int	pos;
+
+	pos = position_limits(stack, limit);
+	if (pos >= (size / 2))
+		return (0);
+	else
+		return (1);
+}
