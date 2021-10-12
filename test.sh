@@ -1,1 +1,1 @@
-gcc main.c reverse.c rotate.c swap.c push.c sorting.c validations.c algo_5_utils.c median.c algo_500_utils.c algo_500_utils_1.c rotate_choice.c rotate_choice_1.c libft/libft.a && ./a.out 2 1 3 5 4
+gcc main.c reverse.c rotate.c swap.c push.c validations.c sorting.c algo_5_utils.c median.c algo_500_utils.c algo_500_utils_1.c rotate_choice.c rotate_choice_2.c rotate_choice_3.c libft/libft.a && ./a.out 2 1 3 7 5 4 6
