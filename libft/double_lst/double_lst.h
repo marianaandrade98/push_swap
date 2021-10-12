@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   double_lst.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/12 17:03:04 by mandrade          #+#    #+#             */
+/*   Updated: 2021/10/12 17:43:42 by mandrade         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef DOUBLE_LST_H
 # define DOUBLE_LST_H
 
@@ -24,5 +36,9 @@ int		ft_dlst_min(t_stack *stack);
 void	ft_dlst_remove(t_stack **stack);
 void	ft_dlst_clear(t_stack **stack);
 void	ft_dlst_print(t_stack *stack);
+t_stack	*ft_dlst_duplicate(t_stack *stack);
+int		ft_dlst_find(t_stack *stack, int value);
+int		ft_dlst_position(t_stack *stack, int position);
+int		ft_dlst_has_bigger(t_stack *stack, int value);
 
 #endif

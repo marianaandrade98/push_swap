@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlstadd_front.c                                 :+:      :+:    :+:   */
+/*   ft_dlst_position.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 15:50:59 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/12 15:51:00 by mandrade         ###   ########.fr       */
+/*   Created: 2021/10/12 17:08:05 by mandrade          #+#    #+#             */
+/*   Updated: 2021/10/12 17:14:40 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "double_lst.h"
 
 /*
-**  create new node in the beginning of the stack
+** returns the value of a position in stack if it exists.
+** if the position is bigger than the size of the stack,
+**     the function returns INT_MIN
 */
 
-void	ft_dlstadd_front(t_stack **stack, t_stack *new_node)
+int	ft_dlst_position(t_stack *stack, int position)
 {
-	t_stack	*temp;
-
-	temp = *stack;
-	if (temp)
+	int	i;
+	
+	i = 0;
+	while (stack)
 	{
-		new_node->next = temp;
-		temp->prev = new_node;
+		if (i == position)
+			return (stack->data);
+		stack = stack->next;
+		i++;
 	}
-	*stack = new_node;
+	return (-2147483648);
 }

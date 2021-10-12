@@ -6,7 +6,7 @@
 #    By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 20:10:19 by mandrade          #+#    #+#              #
-#    Updated: 2021/02/24 20:19:41 by mandrade         ###   ########.fr        #
+#    Updated: 2021/10/12 17:44:20 by mandrade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,9 @@ SRCS_DLST = double_lst/ft_dlstadd_back.c double_lst/ft_dlstadd_front.c \
 			double_lst/ft_dlst_min.c double_lst/ft_dlst_new.c \
 			double_lst/ft_dlst_remove.c double_lst/ft_dlst_size.c \
 			double_lst/ft_dlstis_dup.c double_lst/ft_dlstis_sorted.c \
-			double_lst/ft_dlst_print.c
+			double_lst/ft_dlst_print.c double_lst/ft_dlst_duplicate.c \
+			double_lst/ft_dlst_find.c double_lst/ft_dlst_position.c\
+			double_lst/ft_dlst_has_bigger.c
 
 OBJS_DLST = $(SRCS_DLST:.c=.o)
 

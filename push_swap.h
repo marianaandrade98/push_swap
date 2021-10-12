@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/12 15:35:13 by mandrade          #+#    #+#             */
+/*   Updated: 2021/10/12 15:35:14 by mandrade         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -6,6 +18,13 @@
 # include "libft/libft.h"
 # include <stdio.h>
 
+# ifndef MAX_SIZE
+# define MAX_SIZE 20
+# endif
+
+/*
+** push swap actions in swap.c, push.c, reverse.c and rotate.c
+*/
 void		sa(t_stack *stack_a, int p);
 void		sb(t_stack *stack_b, int p);
 void		ss(t_stack *stack_a, t_stack *stack_b, int p);
@@ -18,8 +37,14 @@ void		rra(t_stack **stack_a, int p);
 void		rrb(t_stack **stack_b, int p);
 void		rrr(t_stack **stack_a, t_stack **stack_b, int p);
 
+/*
+** main_utils.c
+*/
+void		build_stack(char **argv, t_stack **stack_a);
+void		exit_program(t_stack *stack_a, t_stack *stack_b, int status);
+
+
 void		validations(int argc, char **argv, int i);
-void		build_stack(int input, t_stack **stack);
 void		sorting(t_stack **stack_a, t_stack **stack_b);
 void		algo_3(t_stack **stack);
 void		algo_5(t_stack **stack_a, t_stack **stack_b);

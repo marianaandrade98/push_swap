@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlstadd_front.c                                 :+:      :+:    :+:   */
+/*   ft_dlst_has_bigger.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 15:50:59 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/12 15:51:00 by mandrade         ###   ########.fr       */
+/*   Created: 2021/10/12 17:41:16 by mandrade          #+#    #+#             */
+/*   Updated: 2021/10/12 17:51:14 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "double_lst.h"
 
 /*
-**  create new node in the beginning of the stack
+** checks if the stack has a bigger number than the value
 */
 
-void	ft_dlstadd_front(t_stack **stack, t_stack *new_node)
+int	ft_dlst_has_bigger(t_stack *stack, int value)
 {
-	t_stack	*temp;
-
-	temp = *stack;
-	if (temp)
+	while (stack)
 	{
-		new_node->next = temp;
-		temp->prev = new_node;
+		if (stack->data > value)
+			return (1);
+		stack = stack->next;
 	}
-	*stack = new_node;
+	return (0);
 }

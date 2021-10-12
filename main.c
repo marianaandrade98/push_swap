@@ -1,35 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/12 15:34:49 by mandrade          #+#    #+#             */
+/*   Updated: 2021/10/12 15:35:08 by mandrade         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-void	build_stack(int input, t_stack **stack)
-{
-	t_stack	*temp;
-
-	if (*stack == NULL)
-		*stack = ft_dlst_new(input);
-	else
-	{
-		temp = ft_dlst_new(input);
-		ft_dlstadd_back(stack, temp);
-	}
-}
 
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	int		i;
 
-	i = 1;
-	stack_a = NULL;
-	stack_b = NULL;
-	validations(argc, argv, 1);
-	while (i < argc)
-	{
-		build_stack(ft_atoi(argv[i]), &stack_a);
-		i++;
-	}
-	sorting(&stack_a, &stack_b);
-	printf("after sorting\n");
+	if (argc == 1)
+		exit(1);
+	stack_a = 0;
+	stack_b = 0;
+	
 
 	printf("stack A\n");
 	while (stack_a)
@@ -43,8 +35,5 @@ int	main(int argc, char **argv)
 		printf("%d, \n", stack_b->data);
 		stack_b = stack_b->next;
 	}
-
-	ft_dlst_clear(&stack_a);
-	ft_dlst_clear(&stack_b);
 	return (0);
 }

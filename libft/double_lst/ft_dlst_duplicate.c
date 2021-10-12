@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlstadd_front.c                                 :+:      :+:    :+:   */
+/*   ft_dlst_duplicate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 15:50:59 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/12 15:51:00 by mandrade         ###   ########.fr       */
+/*   Created: 2021/10/12 15:55:54 by mandrade          #+#    #+#             */
+/*   Updated: 2021/10/12 16:51:32 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "double_lst.h"
 
 /*
-**  create new node in the beginning of the stack
+**  copies a stack and creates a duplicate
 */
 
-void	ft_dlstadd_front(t_stack **stack, t_stack *new_node)
+t_stack	*ft_dlst_duplicate(t_stack *stack)
 {
-	t_stack	*temp;
+	t_stack	*dup;
+	t_stack	*new_node;
 
-	temp = *stack;
-	if (temp)
+	dup = 0;
+	while (stack)
 	{
-		new_node->next = temp;
-		temp->prev = new_node;
+		new_node = ft_dlst_new(stack->data);
+		if (!new_node)
+		{
+			ft_dlst_clear(&dup);
+			return (0);
+		}
+		ft_dlstadd_back(&dup, new_node);
+		stack = stack->next;
 	}
-	*stack = new_node;
+	return (dup);
 }
