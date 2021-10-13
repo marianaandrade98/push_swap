@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:03:04 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/12 17:43:42 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/13 13:11:29 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int		ft_dlst_size(t_stack *stack);
 void	ft_dlstadd_back(t_stack **stack, t_stack *new_node);
 void	ft_dlstadd_front(t_stack **stack, t_stack *new_node);
 int		ft_dlstis_dup(t_stack *stack);
-int		ft_dlstis_sorted_ascend(t_stack *stack);
-int		ft_dlstis_sorted_descend(t_stack *stack);
+int		ft_dlstis_sorted(t_stack *stack);
 int		ft_dlst_max(t_stack *stack);
 int		ft_dlst_min(t_stack *stack);
 void	ft_dlst_remove(t_stack **stack);
@@ -40,5 +39,9 @@ t_stack	*ft_dlst_duplicate(t_stack *stack);
 int		ft_dlst_find(t_stack *stack, int value);
 int		ft_dlst_position(t_stack *stack, int position);
 int		ft_dlst_has_bigger(t_stack *stack, int value);
+int		ft_dlst_median(t_stack *stack);
+void	ft_dlst_sort(t_stack **stack);
+t_stack	*ft_dlst_split(t_stack *head);
+t_stack	*ft_merge_sort(t_stack *first, t_stack *second);
 
 #endif

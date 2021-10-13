@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:52:57 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/12 15:53:00 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/13 10:22:02 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,16 @@
 
 int	ft_dlstis_dup(t_stack *stack)
 {
-	if (!stack)
-		return (1);
-	while (stack)
+	t_stack	*sorted;
+
+	sorted = ft_dlst_duplicate(stack);
+	ft_dlst_sort(&sorted);
+	while (sorted->next)
 	{
-		if (stack->data == stack->next->data)
+		if (sorted->data == sorted->next->data)
 			return (1);
-		stack = stack->next;
+		sorted = sorted->next;
 	}
+	ft_dlst_clear(&sorted);
 	return (0);
 }
