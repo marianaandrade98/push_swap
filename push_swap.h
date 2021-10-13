@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:35:13 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/12 15:35:14 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/13 17:20:22 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,36 +38,26 @@ void		rrb(t_stack **stack_b, int p);
 void		rrr(t_stack **stack_a, t_stack **stack_b, int p);
 
 /*
-** main_utils.c
+** main functions
+*/
+void		sorting(t_stack **stack_a, t_stack **stack_b);
+void		sort_3(t_stack **stack_a);
+void		sort_5(t_stack **stack_a, t_stack **stack_b);
+
+/*
+** utils.c
 */
 void		build_stack(char **argv, t_stack **stack_a);
 void		exit_program(t_stack *stack_a, t_stack *stack_b, int status);
 
+/*
+** main_utils.c
+*/
+void		push_min_to_b(t_stack **stack_a, t_stack **stack_b);
 
-void		validations(int argc, char **argv, int i);
-void		sorting(t_stack **stack_a, t_stack **stack_b);
-void		algo_3(t_stack **stack);
-void		algo_5(t_stack **stack_a, t_stack **stack_b);
-int			is_down_middle(t_stack *stack, int min);
-void		algo_500(t_stack **stack_a, t_stack **stack_b);
-int			part_1(t_stack **stack_a, t_stack **stack_b);
-int			ft_dlst_median(t_stack *stack);
-t_stack		*builder(t_stack *stack);
-int			aux_median_check(t_stack *stack_a, int median);
-int			median_pos(t_stack *temp, int median);
-void		part_1_cont(t_stack **stack_a, t_stack **stack_b, int aux_median,
-			int median);
-int			pos_check(t_stack *stack_a, int value);
-void		presort_b_500(t_stack **stack_b, t_stack **stack_a, int median);
-void		sort_b_500(t_stack **stack_b, t_stack **stack_a, int min);
-void		sort_b_start(t_stack **stack_a, int min);
-int			rotate_choice(t_stack *stack, int median);
-int			rotate_choice_limits(t_stack *stack, int size, int limit);
-int			part_2(t_stack **stack_a, t_stack **stack_b, int min);
-int			rotate_choice_2(t_stack *stack, int median, int limit);
-int			part_3(t_stack **stack_a, t_stack **stack_b, int min);
-void		part_4(t_stack **stack_a, t_stack **stack_b, int min);
-int			rotate_choice_3(t_stack *stack, int median);
-int			aux_median_min(t_stack *stack_a, int median);
+/*
+** main_utils.c
+*/
+int			count_in_between(t_stack *stack_a, t_stack *limits);
 
 #endif

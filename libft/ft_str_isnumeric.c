@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlst_find.c                                     :+:      :+:    :+:   */
+/*   ft_str_isnumeric.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 16:53:45 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/13 14:19:29 by mandrade         ###   ########.fr       */
+/*   Created: 2021/10/13 14:23:57 by mandrade          #+#    #+#             */
+/*   Updated: 2021/10/13 14:27:08 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "double_lst.h"
+#include "libft.h"
 
-/*
-** returns th index of a value if it exists in stack
-** if it doesn't find the value, it returns INT_MIN.
-*/
-
-int	ft_dlst_find(t_stack *stack, int value)
+int	ft_str_isnumeric(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (stack)
+	if (str[i] == '-')
+		i++;
+	while (str[i])
 	{
-		if (value == stack->data)
-			return (i);
-		stack = stack->next;
+		if (!ft_isdigit(str[i]))
+			return (0);
 		i++;
 	}
-	return (-2147483648);
+	return (1);
 }

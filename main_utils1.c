@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlst_find.c                                     :+:      :+:    :+:   */
+/*   main_utils1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 16:53:45 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/13 14:19:29 by mandrade         ###   ########.fr       */
+/*   Created: 2021/10/13 17:01:18 by mandrade          #+#    #+#             */
+/*   Updated: 2021/10/13 17:10:43 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "double_lst.h"
+#include "push_swap.h"
 
 /*
-** returns th index of a value if it exists in stack
-** if it doesn't find the value, it returns INT_MIN.
+** takes a stack and counts its numbers in between the first two elements
+** of 'limits'
 */
 
-int	ft_dlst_find(t_stack *stack, int value)
+int	count_in_between(t_stack *stack_a, t_stack *limits)
 {
-	int	i;
-
-	i = 0;
-	while (stack)
-	{
-		if (value == stack->data)
-			return (i);
-		stack = stack->next;
-		i++;
-	}
-	return (-2147483648);
+	t_stack	*dup;
+	int	max_i;
+	int	min_i;
+	
+	dup = ft_dlst_duplicate(stack_a);
+	ft_dlst_sort(&dup);
+	min_i = ft_dlst_find(dup, limits->data);
+	max_i = ft_dlst_find(dup, limits->next->data);
+	ft_dlst_clear(&dup);
+	return (max_i - min_i + 1);
 }

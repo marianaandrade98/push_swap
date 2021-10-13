@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 20:09:31 by mandrade          #+#    #+#             */
-/*   Updated: 2021/06/30 14:50:17 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/13 14:40:11 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 void				ft_swap(int *a, int *b);
 void				ft_putstr(char const *s);
 void				ft_putchar(char c);
+int					ft_str_isnumeric(char *str);
+int					ft_isint(long long int n);
 
 #endif
