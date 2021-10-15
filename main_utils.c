@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 15:36:14 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/14 17:07:06 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/15 20:50:29 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,16 @@ void	push_min_to_b(t_stack **stack_a, t_stack **stack_b)
 /*
 ** it will grab the median of 'stack_a' between the first two limits
 ** of the stack 'limits' and add it to 'limits'.
-** it starts by creating a duplicated stack of 'stack_a' and sorting
+** 			- it starts by creating a duplicated stack of 'stack_a' and sorting
 ** 		the dup, so it will be a sorted version of 'stack_a'
+** 			- then, it will try to find the index in duplicate of the first element
+**		of 'limits', the same happens to the second element.
+**			- after that, it is possible to find the index of the median. The
+**		calculations are: (max_i - min_i) / 2 + min_i
+**			- the 'new' will then be the element whose index in duplicate is the
+**		number in between max_i and min_i
+**			- 'new' is added to 'limits' and 'limits' is sorted so that it contains
+**		all the partitions of stack_a in order
 */
 
 void	get_new_limit(t_stack **limits, t_stack *stack, int status)
@@ -46,7 +54,7 @@ void	get_new_limit(t_stack **limits, t_stack *stack, int status)
 	int		new;
 
 	dup = ft_dlst_duplicate(stack);
-	ft_dlst_sort(dup);
+	ft_dlst_sort(&dup);
 	if (status)
 	{
 		min_i = ft_dlst_find(dup, (*limits)->data);
@@ -58,4 +66,59 @@ void	get_new_limit(t_stack **limits, t_stack *stack, int status)
 	ft_dlstadd_front(limits, ft_dlst_new(new));
 	ft_dlst_sort(limits);
 	ft_dlst_clear(&dup);
+}
+
+/*
+** iterates stack_a, from the top and finds the first number with values between
+** the first and the second number in 'limits'
+**		- stack_a will be iterated in order to find the position of the first number
+**			between 'limits'
+**		- 'limits' will serve as the limits to find the number in 'stack_a'
+** the function returns the extimated number or "ra" instructions necessary for the
+** number found in stack_a to be on top.
+*/
+
+int	get_hold_first(t_stack *stack_a, t_stack *limits)
+{
+	int	first;
+	int	max;
+	int	min;
+
+	min = limits->data;
+	max = limits->next->data;
+	first = 0;
+	while (stack_a)
+	{
+		if (stack_a->data >= min && stack_a->data <= max)
+			return (first);
+		first++;
+		stack_a = stack_a->next;
+	}
+	return (first);
+}
+
+/*
+** helper function of merge_sort_to_a(). It will return the minimum number
+** of srack_a that is not sorted, as the new limit.
+*/
+
+int	get_next_value(t_stack *stack_a, t_stack **limits)
+{
+	t_stack	*dup;
+	int		pos;
+	int		min;
+
+	dup = ft_dlst_duplicate(stack_a);
+	ft_dlst_sort(&dup);
+	pos = ft_dlst_find(dup, (*limits)->next->data);
+	min = ft_dlst_get(dup, pos);
+	if (min == ft_dlst_last(dup)->data)
+	{
+		ft_dlst_clear(&dup);
+		return (min);
+	}
+	else
+		min = ft_dlst_get(dup, pos + 1);
+	ft_dlst_clear(&dup);
+	return (min);
 }

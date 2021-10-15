@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:35:13 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/13 17:20:22 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/15 20:57:02 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void		rrr(t_stack **stack_a, t_stack **stack_b, int p);
 void		sorting(t_stack **stack_a, t_stack **stack_b);
 void		sort_3(t_stack **stack_a);
 void		sort_5(t_stack **stack_a, t_stack **stack_b);
+void		sort_500(t_stack **stack_a, t_stack **stack_b, t_stack **limits, int i);
 
 /*
 ** utils.c
@@ -54,10 +55,17 @@ void		exit_program(t_stack *stack_a, t_stack *stack_b, int status);
 ** main_utils.c
 */
 void		push_min_to_b(t_stack **stack_a, t_stack **stack_b);
+void		get_new_limit(t_stack **limits, t_stack *stack, int status);
+int			get_hold_first(t_stack *stack_a, t_stack *limits);
+int			get_next_value(t_stack *stack_a, t_stack **limits);
 
 /*
-** main_utils.c
+** main_utils1.c
 */
 int			count_in_between(t_stack *stack_a, t_stack *limits);
+void		split_a_to_b(t_stack **stack_a, t_stack **stack_b, t_stack *limits);
+void		rotate_until_sorted(t_stack **stack_a, t_stack *limits);
+void		merge_half_to_a(t_stack **stack_a, t_stack **stack_b, t_stack *limits);
+void		merge_sort_to_a(t_stack **stack_a, t_stack **stack_b, t_stack *limits);
 
 #endif

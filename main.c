@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:34:49 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/13 17:24:31 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/15 20:48:04 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,28 @@ void	sort_5(t_stack **stack_a, t_stack **stack_b)
 		pa(stack_a, stack_b, 1);
 }
 
+/*
+** the algorithm is separated in two different phases: the split phase and
+** the merge phase.
+**
+** Split phase: is focused on pushing to stack_b the number in between a
+**				certain chunk. These phase ends when all the numbers of chunk
+**				are in stack_b.
+**				ex:		100 random numbers from 1 to 100.
+**						1st chunk: numbers from 1 to 50 in stack_b.
+**						2nd chunk: numbers from 50 to 100 in stack_a.
+**
+** Then it will choose between:
+** - Merge Back Phase: occurs if stack_b's size is too big for the Merge Sort
+**						Phase. So half of the values of stack_b will go back to
+**						stack_a - specifically values that are bigger than the median
+**						value of stack_b. This will happen while at the same time
+**						trying to sort what's possible back into stack_a.
+** - Merge Sort Phase: occurs if stack_b's ready for sorting back into stack_a - has
+**						a few amount of numbers which makes it possible for them
+**						to go back sorted into stack_a.
+*/
+
 void	sort_500(t_stack **stack_a, t_stack **stack_b,
 		t_stack **limits, int i)
 {
@@ -123,5 +145,18 @@ void	sort_500(t_stack **stack_a, t_stack **stack_b,
 	}
 	if (ft_dlst_size(*limits) == 2
 		&& count_in_between(*stack_a, *limits) >= MAX_SIZE)
-		//get_new_limit(limits, *stack_a, 1);
+		get_new_limit(limits, *stack_a, 1);
+	if (!ft_dlst_size(*stack_b))
+	{
+		split_a_to_b(stack_a, stack_b, *limits);
+		rotate_until_sorted(stack_a, *limits);
+	}
+	if (ft_dlst_size(*stack_b) >= MAX_SIZE)
+		merge_half_to_a(stack_a, stack_b, *limits);
+	else
+	{
+		merge_sort_to_a(stack_a, stack_a, *limits);
+		ft_dlst_remove(limits);
+	}
+	sort_500(stack_a, stack_b, limits, ++i);
 }
