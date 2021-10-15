@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 15:36:14 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/13 17:48:17 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/14 17:07:06 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ void	push_min_to_b(t_stack **stack_a, t_stack **stack_b)
 }
 
 /*
-** 
+** it will grab the median of 'stack_a' between the first two limits
+** of the stack 'limits' and add it to 'limits'.
+** it starts by creating a duplicated stack of 'stack_a' and sorting
+** 		the dup, so it will be a sorted version of 'stack_a'
 */
 
 void	get_new_limit(t_stack **limits, t_stack *stack, int status)
