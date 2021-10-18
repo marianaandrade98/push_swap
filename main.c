@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:34:49 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/15 21:26:42 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/18 15:51:35 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,9 +155,9 @@ void	sort_500(t_stack **stack_a, t_stack **stack_b,
 		merge_half_to_a(stack_a, stack_b, *limits);
 	else
 	{
-		merge_sort_to_a(stack_a, stack_a, *limits);
+		merge_sort_to_a(stack_a, stack_b, *limits);
 		ft_dlst_remove(limits);
 	}
-	// printf("inside\n");
 	sort_500(stack_a, stack_b, limits, ++i);
 }
+

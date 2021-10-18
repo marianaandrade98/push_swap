@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 17:01:18 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/15 21:31:28 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/18 15:43:52 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,49 +108,19 @@ void	merge_half_to_a(t_stack **stack_a, t_stack **stack_b, t_stack *limits)
 ** merges the rest of stack_b in a sorted matter.
 */
 
-// void	merge_sort_to_a(t_stack **stack_a, t_stack **stack_b, t_stack *limits)
-// {
-// 	t_stack	*dup;
-
-// 	dup = ft_dlst_duplicate(*stack_b);
-// 	ft_dlst_sort(&dup);
-// 	while (ft_dlst_size(*stack_b))
-// 	{
-// 		if ((*stack_b)->data == dup->data)
-// 		{
-// 			pa(stack_a, stack_b, 1);
-// 			dup = dup->next;
-// 			if (ft_dlst_size(*stack_b) && (*stack_b)->data != dup->data
-// 				&& (*stack_b)->data != ft_dlst_max(*stack_b))
-// 				rr(stack_a, stack_b, 1);
-// 			else
-// 				ra(stack_a, 1);
-// 		}
-// 		else if ((*stack_b)->data == ft_dlst_max(*stack_b))
-// 			pa(stack_a, stack_b, 1);
-// 		else
-// 			rb(stack_b, 1);
-// 	}
-// 	printf("inside\n");
-// 	while (ft_dlst_last(*stack_a)->data != limits->next->data)
-// 		ra(stack_a, 1);
-// 	limits->next->data = get_next_value(*stack_a, &limits);
-// 	ft_dlst_clear(&dup);
-// }
-
 void	merge_sort_to_a(t_stack **stack_a, t_stack **stack_b, t_stack *limits)
 {
-	t_stack	*duplicate;
+	t_stack	*dup;
 
-	duplicate = ft_dlst_duplicate(*stack_b);
-	ft_dlst_sort(&duplicate);
+	dup = ft_dlst_duplicate(*stack_b);
+	ft_dlst_sort(&dup);
 	while (ft_dlst_size(*stack_b))
 	{
-		if ((*stack_b)->data == duplicate->data)
+		if ((*stack_b)->data == dup->data)
 		{
 			pa(stack_a, stack_b, 1);
-			duplicate = duplicate->next;
-			 if (ft_dlst_size(*stack_b) && (*stack_b)->data != duplicate->data
+			dup = dup->next;
+			if (ft_dlst_size(*stack_b) && (*stack_b)->data != dup->data
 				&& (*stack_b)->data != ft_dlst_max(*stack_b))
 				rr(stack_a, stack_b, 1);
 			else
@@ -161,9 +131,8 @@ void	merge_sort_to_a(t_stack **stack_a, t_stack **stack_b, t_stack *limits)
 		else
 			rb(stack_b, 1);
 	}
-	printf("%d\n", (*stack_b)->data);
 	while (ft_dlst_last(*stack_a)->data != limits->next->data)
 		ra(stack_a, 1);
 	limits->next->data = get_next_value(*stack_a, &limits);
-	ft_dlst_clear(&duplicate);
+	ft_dlst_clear(&dup);
 }
