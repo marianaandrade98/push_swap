@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 14:13:39 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/13 14:13:40 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/18 19:22:39 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@
 
 void	ft_dlst_remove(t_stack **stack)
 {
-	t_stack	*temp;
+	t_stack	*temporary;
 
-	if (!*stack)
+	if (!stack)
 		return ;
-	temp = *stack;
-	if (temp->next)
-		temp->next->prev = temp->prev;
-	if (temp->prev)
-		temp->prev->next = temp->next;
-	if (temp->prev)
-		*stack = temp->prev;
+	temporary = *stack;
+	if (temporary->next)
+		temporary->next->prev = temporary->prev;
+	if (temporary->prev)
+		temporary->prev->next = temporary->next;
+	if (temporary->prev)
+		*stack = temporary->prev;
 	else
-		*stack = temp->next;
-	free(temp);
+		*stack = temporary->next;
+	free(temporary);
 }

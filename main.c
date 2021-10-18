@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:34:49 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/18 15:51:35 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/18 19:18:56 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,20 @@ int	main(int argc, char **argv)
 	if (!ft_dlstis_sorted(stack_a))
 		sorting(&stack_a, &stack_b);
 
-	printf("stack A\n");
-	while (stack_a)
-	{
-		printf("%d, \n", stack_a->data);
-		stack_a = stack_a->next;
-	}
-	printf("stack B\n");
-	while (stack_b)
-	{
-		printf("%d, \n", stack_b->data);
-		stack_b = stack_b->next;
-	}
+	// printf("stack A\n");
+	// while (stack_a)
+	// {
+	// 	printf("%d, \n", stack_a->data);
+	// 	stack_a = stack_a->next;
+	// }
+	// printf("stack B\n");
+	// while (stack_b)
+	// {
+	// 	printf("%d, \n", stack_b->data);
+	// 	stack_b = stack_b->next;
+	// }
 	exit_program(stack_a, stack_a, 1);
+	
 	return (0);
 }
 
@@ -143,8 +144,7 @@ void	sort_500(t_stack **stack_a, t_stack **stack_b,
 		ft_dlst_clear(limits);
 		return ;
 	}
-	if (ft_dlst_size(*limits) == 2
-		&& count_in_between(*stack_a, *limits) >= MAX_SIZE)
+	if (ft_dlst_size(*limits) == 2 && count_in_between(*stack_a, *limits) >= MAX_SIZE)
 		get_new_limit(limits, *stack_a, 1);
 	if (!ft_dlst_size(*stack_b))
 	{
@@ -160,4 +160,3 @@ void	sort_500(t_stack **stack_a, t_stack **stack_b,
 	}
 	sort_500(stack_a, stack_b, limits, ++i);
 }
-

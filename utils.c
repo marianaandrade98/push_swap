@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_utils.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:35:24 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/13 14:44:41 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/18 19:19:56 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	exit_program(t_stack *stack_a, t_stack *stack_b, int status)
 		ft_dlst_clear(&stack_a);
 	if (stack_b)
 		ft_dlst_clear(&stack_b);
+	printf("inside\n");
 	if (!status)
 	{
 		ft_putstr_fd("Error\n", 2);
