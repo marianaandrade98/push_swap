@@ -1,1 +1,1 @@
-gcc main.c reverse.c rotate.c swap.c push.c utils.c main_utils.c main_utils1.c libft/libft.a && ./a.out 3 2 1
+gcc main.c reverse.c rotate.c swap.c push.c utils.c main_utils.c main_utils1.c libft/libft.a && ./a.out 3 2 1 5 4 7 6 9 8
