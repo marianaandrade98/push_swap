@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 14:13:46 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/13 14:13:48 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/19 19:08:49 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@
 
 int	ft_dlst_size(t_stack *stack)
 {
-	int	i;
+	int	size;
 
-	i = 0;
-	if (!stack)
-		return (0);
+	size = 0;
 	while (stack)
 	{
 		stack = stack->next;
-		i++;
+		size++;
 	}
-	return (i);
+	return (size);
 }
