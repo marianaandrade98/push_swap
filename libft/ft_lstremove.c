@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlst_print.c                                    :+:      :+:    :+:   */
+/*   ft_lstremove.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/13 14:13:31 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/19 23:13:56 by mandrade         ###   ########.fr       */
+/*   Created: 2021/10/20 06:58:52 by mandrade          #+#    #+#             */
+/*   Updated: 2021/10/20 06:58:55 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "double_lst.h"
+#include "libft.h"
 
-/*
-** prints all data from the stack
-*/
-
-void	ft_dlst_print(t_stack *stack)
+void	ft_lstremove(t_list **lst)
 {
-	t_stack	*temp;
+	t_list	*temporary;
 
-	if (!stack)
+	if (!lst)
 		return ;
-	temp = stack;
-	while (temp)
-	{
-		ft_putnbr_fd(temp->data, 1);
-		if (temp->next)
-			ft_putstr_fd(", ", 1);
-		else
-			ft_putstr_fd("\n", 1);
-		temp = temp->next;
-	}
+	temporary = *lst;
+	*lst = temporary->next;
+	temporary->next = NULL;
+	free(temporary);
 }

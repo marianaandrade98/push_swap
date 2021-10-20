@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:35:13 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/15 20:57:02 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/20 07:03:19 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdio.h>
 
 # ifndef MAX_SIZE
-# define MAX_SIZE 20
+#  define MAX_SIZE 20
 # endif
 
 /*
@@ -43,7 +43,8 @@ void		rrr(t_stack **stack_a, t_stack **stack_b, int p);
 void		sorting(t_stack **stack_a, t_stack **stack_b);
 void		sort_3(t_stack **stack_a);
 void		sort_5(t_stack **stack_a, t_stack **stack_b);
-void		sort_500(t_stack **stack_a, t_stack **stack_b, t_stack **limits, int i);
+void		sort_500(t_stack **stack_a, t_stack **stack_b, t_stack **limits,
+				int i);
 
 /*
 ** utils.c
@@ -65,7 +66,20 @@ int			get_next_value(t_stack *stack_a, t_stack **limits);
 int			count_in_between(t_stack *stack_a, t_stack *limits);
 void		split_a_to_b(t_stack **stack_a, t_stack **stack_b, t_stack *limits);
 void		rotate_until_sorted(t_stack **stack_a, t_stack *limits);
-void		merge_half_to_a(t_stack **stack_a, t_stack **stack_b, t_stack *limits);
-void		merge_sort_to_a(t_stack **stack_a, t_stack **stack_b, t_stack *limits);
+void		merge_half_to_a(t_stack **stack_a, t_stack **stack_b,
+				t_stack *limits);
+void		merge_sort_to_a(t_stack **stack_a, t_stack **stack_b,
+				t_stack *limits);
+
+/*
+** checker.c
+*/
+void		exit_checker(t_stack *stack_a, t_stack *stack_b,
+				t_list **instructions, int status);
+void		get_instructions(t_stack **stack_a, t_list **instructions);
+void		implement_instruction(t_stack **stack_a, t_stack **stack_b,
+				char *instruction);
+void		call_instruction(t_stack **stack_a, t_stack **stack_b,
+				t_list *instructions);
 
 #endif

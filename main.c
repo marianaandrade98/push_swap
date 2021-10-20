@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:34:49 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/19 16:15:24 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/20 06:55:23 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,6 @@ int	main(int argc, char **argv)
 	build_stack(&argv[1], &stack_a);
 	if (!ft_dlstis_sorted(stack_a))
 		sorting(&stack_a, &stack_b);
-
-	printf("stack A\n");
-	while (stack_a)
-	{
-		printf("%d, \n", stack_a->data);
-		stack_a = stack_a->next;
-	}
-	printf("stack B\n");
-	while (stack_b)
-	{
-		printf("%d, \n", stack_b->data);
-		stack_b = stack_b->next;
-	}
 	exit_program(stack_a, stack_b, 1);
 	return (0);
 }
@@ -48,8 +35,8 @@ int	main(int argc, char **argv)
 void	sorting(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*limits;
-	int	max;
-	int	min;
+	int		max;
+	int		min;
 
 	max = ft_dlst_max(*stack_a);
 	min = ft_dlst_min(*stack_a);
@@ -118,21 +105,22 @@ void	sort_5(t_stack **stack_a, t_stack **stack_b)
 ** the merge phase.
 **
 ** Split phase: is focused on pushing to stack_b the number in between a
-**				certain chunk. These phase ends when all the numbers of chunk
-**				are in stack_b.
+**				certain chunk. These phase ends when all the numbers of
+**				chunk are in stack_b.
 **				ex:		100 random numbers from 1 to 100.
 **						1st chunk: numbers from 1 to 50 in stack_b.
 **						2nd chunk: numbers from 50 to 100 in stack_a.
 **
 ** Then it will choose between:
-** - Merge Back Phase: occurs if stack_b's size is too big for the Merge Sort
-**						Phase. So half of the values of stack_b will go back to
-**						stack_a - specifically values that are bigger than the median
-**						value of stack_b. This will happen while at the same time
-**						trying to sort what's possible back into stack_a.
-** - Merge Sort Phase: occurs if stack_b's ready for sorting back into stack_a - has
-**						a few amount of numbers which makes it possible for them
-**						to go back sorted into stack_a.
+** - Merge Back Phase: occurs if stack_b's size is too big for the Merge
+**				 Sort Phase. So half of the values of stack_b will go back
+**				 to stack_a - specifically values that are bigger than the
+**						median value of stack_b. This will happen while at
+**						the same time trying to sort what's possible back
+**						into stack_a.
+** - Merge Sort Phase: occurs if stack_b's ready for sorting back into 
+**						stack_a - has a few amount of numbers which makes
+**						it possible for them to go back sorted into stack_a.
 */
 
 void	sort_500(t_stack **stack_a, t_stack **stack_b,
@@ -143,7 +131,8 @@ void	sort_500(t_stack **stack_a, t_stack **stack_b,
 		ft_dlst_clear(limits);
 		return ;
 	}
-	if (ft_dlst_size(*limits) == 2 && count_in_between(*stack_a, *limits) >= MAX_SIZE)
+	if (ft_dlst_size(*limits) == 2 && count_in_between(*stack_a,
+			*limits) >= MAX_SIZE)
 		get_new_limit(limits, *stack_a, 1);
 	if (!ft_dlst_size(*stack_b))
 	{

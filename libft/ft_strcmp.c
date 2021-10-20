@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlst_print.c                                    :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/13 14:13:31 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/19 23:13:56 by mandrade         ###   ########.fr       */
+/*   Created: 2021/10/19 23:59:13 by mandrade          #+#    #+#             */
+/*   Updated: 2021/10/19 23:59:16 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "double_lst.h"
+#include "libft.h"
 
-/*
-** prints all data from the stack
-*/
-
-void	ft_dlst_print(t_stack *stack)
+int	ft_strcmp(char *s1, char *s2)
 {
-	t_stack	*temp;
-
-	if (!stack)
-		return ;
-	temp = stack;
-	while (temp)
-	{
-		ft_putnbr_fd(temp->data, 1);
-		if (temp->next)
-			ft_putstr_fd(", ", 1);
-		else
-			ft_putstr_fd("\n", 1);
-		temp = temp->next;
-	}
+	while (*s1 == *s2++)
+		if (*s1++ == 0)
+			return (0);
+	return (*s1 - *--s2);
 }

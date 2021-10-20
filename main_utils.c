@@ -6,7 +6,7 @@
 /*   By: mandrade <mandrade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 15:36:14 by mandrade          #+#    #+#             */
-/*   Updated: 2021/10/19 18:28:35 by mandrade         ###   ########.fr       */
+/*   Updated: 2021/10/20 06:58:03 by mandrade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,11 @@ void	get_new_limit(t_stack **limits, t_stack *stack, int status)
 /*
 ** iterates stack_a, from the top and finds the first number with values between
 ** the first and the second number in 'limits'
-**		- stack_a will be iterated in order to find the position of the first number
-**			between 'limits'
+**		- stack_a will be iterated in order to find the position of the first
+**			number between 'limits'
 **		- 'limits' will serve as the limits to find the number in 'stack_a'
-** the function returns the extimated number or "ra" instructions necessary for the
-** number found in stack_a to be on top.
+** the function returns the extimated number or "ra" instructions necessary for
+** the number found in stack_a to be on top.
 */
 
 int	get_hold_first(t_stack *stack_a, t_stack *limits)
